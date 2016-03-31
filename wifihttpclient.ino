@@ -8,8 +8,8 @@
 
 #include <ESP8266WiFi.h>
 
-const char* ssid     = "NPLHUNK";
-const char* password = "1234567890";
+const char* ssid     = "your_network_name";
+const char* password = "password to your network";
 
 const char* host = "192.168.0.101";
 const char* streamId   = "123";
