@@ -11,9 +11,9 @@
 const char* ssid     = "your_network_name";
 const char* password = "password to your network";
 
-const char* host = "192.168.0.101";
-const char* streamId   = "123";
-const char* privateKey = "456";
+const char* host = "localhost";
+//const char* streamId   = "123";
+//const char* privateKey = "456";
 
 void setup() {
   Serial.begin(115200);
