@@ -1,13 +1,14 @@
-$servername = 'localhost';
-$username = '********';
-$password ='';
-$dbname = 'cps_database';
-$response = false;
-$conn_error = 'Connection Error';
-$value = $_GET['rfid'];
-echo $value;
+<?php
+//rror_reporting(0);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "cps_database";
+if(!empty($_POST['rfid'])){
 
-if(isset($value)){	
+
+	$val= $_POST['rfid'];
+
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,23 +16,18 @@ if(isset($value)){
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	
-	$sql = "SELECT RFID_TAG_NUM FROM Office_Employees WHERE RFID_TAG_NUM= $value";
-	
+
+	$sql = "SELECT key_number FROM rfid_key WHERE key_number = " . $val;
 	$result = $conn->query($sql);
-	
-
+	//echo "004152"
 	if ($result->num_rows > 0) {
-		$response=True;	
-		echo 'Access Granted';	
-	} 
-	else {
-		$response=False;	
-		echo 'Access Denied';
-
+		// output data of each row
+		
+		echo "Access Granted";
+		} else {
+			
+		echo "Access Denied!!! You are not an authorised user";
 	}
-	//echo $response;
 	$conn->close();
-    }
-
+}
 ?>
